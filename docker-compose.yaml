@@ -1,0 +1,14 @@
+version: '3'
+services:
+  docker-app:
+    image: williamrod/parking-control-api
+    ports:
+      - "8080:8080"
+    depends_on:
+      - docker-postgres
+  docker-postgres:
+    image: postgres
+    environment:
+      - POSTGRES_DB=parking-control-db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
